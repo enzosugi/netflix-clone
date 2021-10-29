@@ -65,11 +65,22 @@ const StyledMovieRow = styled.div `
     .movieRow:hover .movieRow--right {
         opacity: 1;
     }
+
+    @media (max-width: 760px) {
+        .movieRow--left,
+        .movieRow--right {
+            opacity: 1;
+        }
+        
+        .movieRow--item {
+            width:150px;
+        }
+    }
 `
 
 export default ({title, items}) => {
 
-    const [scrollX, setScrollX] = useState(-400)
+    const [scrollX, setScrollX] = useState(0)
     // função para passar a lista para a esquerda
     const handleLeftArrow = ()=> {
         let x = scrollX + Math.round(window.innerWidth / 2);
