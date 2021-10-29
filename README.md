@@ -1,2 +1,2 @@
-Clone da plataforma Netflix feito com ReactJs
-# styled-components e react-icons 
+## Clone da plataforma Netflix feito com ReactJs
+#styled-components e react-icons 
