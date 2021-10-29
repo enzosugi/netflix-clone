@@ -3,11 +3,13 @@ import MovieRow from './components/movierow/MovieRow';
 import FeaturedMovie from './components/featuredmovie/FeaturedMovie';
 import Tmdb from './Tmdb';
 import './App.css';
+import Header from './components/header/Header';
 
 export default function App () {
   
   const [movieList, setMovieList] = useState([]);
   const [featuredData, setFeaturedData] = useState(null); 
+  const [blackHeader, setBlackHeader] = useState(false);
 
 
   useEffect(() => {
@@ -30,9 +32,26 @@ export default function App () {
       loadAll();
   }, []);
   
+  // colocando o fundo preto no header com o evento de scroll da tela
+  useEffect(()=>{
+      const scrollListener = () => {
+        if(window.scrollY > 500) {
+          setBlackHeader(true);
+        } else {
+        setBlackHeader(false);
+        }
+    }
+
+    window.addEventListener('scroll', scrollListener);
+    return () => {
+      window.removeEventListener('scroll', scrollListener);
+    }
+  })
   
   return(
     <div className="home">
+      
+      <Header black={blackHeader}/>
 
       {featuredData && 
         <FeaturedMovie item={featuredData}/>
@@ -43,6 +62,7 @@ export default function App () {
           <MovieRow key={key} title={item.title} items={item.items}/>
         ))}
       </section>
+      
     </div>
   )
 }
