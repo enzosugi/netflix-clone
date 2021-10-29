@@ -36,7 +36,7 @@ export default function App () {
   // colocando o fundo preto no header com o evento de scroll da tela
   useEffect(()=>{
       const scrollListener = () => {
-        if(window.scrollY > 500) {
+        if(window.scrollY > 300) {
           setBlackHeader(true);
         } else {
         setBlackHeader(false);
@@ -64,6 +64,12 @@ export default function App () {
         ))}
       </section>
       <Footer/>
+
+      {movieList.length <= 0 &&
+      <div className="loading">
+        <img src="https://media.wired.com/photos/592744d3f3e2356fd800bf00/master/w_1280,c_limit/Netflix_LoadTime.gif" alt="loading" />
+      </div>}    
     </div>
+
   )
 }
