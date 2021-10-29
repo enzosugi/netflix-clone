@@ -4,6 +4,7 @@ import FeaturedMovie from './components/featuredmovie/FeaturedMovie';
 import Tmdb from './Tmdb';
 import './App.css';
 import Header from './components/header/Header';
+import Footer from './components/footer/Footer';
 
 export default function App () {
   
@@ -62,7 +63,7 @@ export default function App () {
           <MovieRow key={key} title={item.title} items={item.items}/>
         ))}
       </section>
-      
+      <Footer/>
     </div>
   )
 }

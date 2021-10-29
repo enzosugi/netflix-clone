@@ -41,7 +41,7 @@ const StyledFeatured = styled.div `
 
     .featured--points, 
     .featured--year, 
-    .featured--season {
+    .featured--seasons {
         display: inline-block;
         margin-right:15px;
     }
@@ -121,7 +121,7 @@ export default ({item}) => {
                             <a href={`/watch/${item.id}`} className="featured--watchbutton"> ► Assistir</a>
                             <a href={`/list/add/${item.id}`} className="featured--mylistbutton"> + Minha Lista</a>
                         </div>
-                        <div className="featured--genres"><strong>Gêneros:</strong>{genres.join(', ')}</div>
+                        <div className="featured--genres"><strong>Gêneros: </strong>{genres.join(', ')}</div>
                     </div>
                 </div>
             </section>
